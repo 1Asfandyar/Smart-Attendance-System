@@ -1,0 +1,54 @@
+# This CI/CD pipe line build and deploy the front-end of app to smart-attendance-system-ml-project.surge.sh
+# when ever there is any push to the client branch which is hosted on surge.sh
+
+name: Building and Deploying front-end to Surge
+
+# Controls when the workflow will run
+# when ever there is push to client branch
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ client ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    # This will be runing on Linux Ubuntu    
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Installing Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      # Runs a set of commands using the runners shell
+      # Installing Yarn
+      - name: Installing Yarn
+        run: npm install --global yarn
+      
+      # Installing Surge
+      - name: Installing Yarn
+        run: npm install --global surge
+      
+      # Installing dependencies
+      - name: Installing dependencies
+        working-directory: ./client
+        run: yarn install
+      
+      # Build Production pakage
+      - name: Building production pakages
+        working-directory: ./client
+        run: yarn build
+      
+      # Deploying to Surge
+      - name: Deploying to surge
+        working-directory: ./client
+        run: surge ./build smart-attendance-system-ml-project.surge.sh --token ${{secrets.SURGE_TOKEN}}
