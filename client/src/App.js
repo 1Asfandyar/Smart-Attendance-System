@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Auth from "./Pages/Auth";
 import DashBoard from "./Pages/DashBoard";
+import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Auth />} />
           <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </div>
     </Router>
