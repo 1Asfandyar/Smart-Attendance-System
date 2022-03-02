@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, CircularProgress } from "@mui/material";
+import { LoadingButton } from "@mui/lab/";
 
-const MyButton = ({ text, onClick, size = 40, color = "inherit" }) => {
+const MyButton = ({ text, onClick, color = "primary", fullWidth = true }) => {
   const [fetching, setFetching] = useState(false);
 
   const clickHandler = async () => {
@@ -12,9 +12,15 @@ const MyButton = ({ text, onClick, size = 40, color = "inherit" }) => {
 
   return (
     <>
-      <Button variant="contained" color={color} onClick={clickHandler}>
-        {fetching ? <CircularProgress size={size} /> : text}
-      </Button>
+      <LoadingButton
+        variant="contained"
+        loading={fetching}
+        color={color}
+        onClick={clickHandler}
+        fullWidth={fullWidth}
+      >
+        {text}
+      </LoadingButton>
     </>
   );
 };
