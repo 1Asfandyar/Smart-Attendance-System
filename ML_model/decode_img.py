@@ -1,3 +1,6 @@
+import numpy as np
+from PIL import Image
+import io
 import base64
 
 def decode(str_img:str):
@@ -5,4 +8,4 @@ def decode(str_img:str):
     # which is required for decoding the image.
     # encoded string would be like
     # data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/
-    return base64.b64decode(str_img.split(",")[1])
+    return np.array(Image.open(io.BytesIO(base64.b64decode(str_img.split(",")[1]))))
