@@ -29,3 +29,4 @@
 ML_model/.venv/
 
 **/.env
+ML_model/__pycache__/
