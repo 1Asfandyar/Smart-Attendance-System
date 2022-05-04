@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from flask import Flask
+
+from log import debug, info, warning, error
 # from home import home_bp
 
 load_dotenv()
