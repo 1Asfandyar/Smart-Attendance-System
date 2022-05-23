@@ -1,18 +1,15 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask
+from flask import Flask, jsonify
 
 from log import debug, info, warning, error
-# from home import home_bp
+from req_handler import present_students
 
 load_dotenv()
 PORT = os.getenv('PORT')
 
 app = Flask(__name__)
-@app.route('/')
-def home():
-    return "Home page"
-# app.register_blueprint(home_bp, url_prefix='/home')
+app.register_blueprint(present_students, url_prefix='/')
 
 # use_reloader → When use_reloader is set to True , 
 # the server will automatically restart when code changes. 
