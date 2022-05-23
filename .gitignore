@@ -30,3 +30,5 @@ ML_model/.venv/
 
 **/.env
 ML_model/__pycache__/
+# all the traning & testing data for ML Model
+ML_model/Data/**
