@@ -1,0 +1,34 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# **/ means all levels of subdirectories
+
+# VS Code workspace files
+**/*.code-workspace
+
+# dependencies
+**/node_modules
+**/.pnp
+**/.pnp.js
+
+# testing
+**/coverage
+
+# production
+**/build
+
+# misc
+**/.DS_Store
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+ML_model/.venv/
+
+**/.env
+ML_model/__pycache__/
+# all the traning & testing data for ML Model
+ML_model/Data/**
