@@ -315,3 +315,4 @@ def takeAttendence(dec_names_lst, dec_std_faces, dec_class_room_img):
         'absent_stds':list(NOT_SURE_DIST)}
 
 
+takeAttendence(Name_list, StudentFaces_Encoding, ClassroomImagePath)
