@@ -1,18 +1,3 @@
-# %% [markdown]
-# <a href="https://colab.research.google.com/github/1Asfandyar/Smart-Attendance-System/blob/AI-model/ML_model/ML_Model_Function.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
-# %% [markdown]
-# **Library installation**
-
-# %%
-!pip install face_recognition
-!pip install -v --install-option="--no" --install-option="DLIB_USE_CUDA" dlib
-!pip install mtcnn
-
-# %%
-from google.colab import drive
-drive.mount('/content/drive')
-
 # %%
 import face_recognition
 import matplotlib.pyplot as plt
@@ -26,10 +11,6 @@ from matplotlib import pyplot
 from matplotlib.patches import Rectangle
 from matplotlib.patches import Circle
 from mtcnn.mtcnn import MTCNN
-
-# %% [markdown]
-# Function that create encoding of all faces from specific folder.
-# Then save that in pkl file in the drive.
 
 # %%
 def savePickleEncodingsToFile(file_name:str, py_obj):
@@ -131,16 +112,6 @@ def EncodeFaces(path_to_std_img_dir, std_names_file_name, std_enc_file_name):
   savePickleEncodingsToFile(std_enc_file_name, encodeListKnown)
 
 # %%
-StudentFaces_dir = "/content/drive/MyDrive/ML_Project/Student_Faces"
-Name_list = "/content/drive/MyDrive/ML_Project/StudentName.pkl"
-StudentFaces_Encoding = "/content/drive/MyDrive/ML_Project/StudentEncoding.pkl"
-ClassroomImagePath = "/content/drive/MyDrive/ML_Project/ClassroomPicture/IMG_20220315_095343_1.jpg"
-
-
-# %%
-EncodeFaces(StudentFaces_dir, Name_list, StudentFaces_Encoding)
-
-# %%
 def takeAttendenceFromFiles(enc_names_file, enc_std_faces_file, class_room_img):
   """
   This function detects and recongnize faces in the image of whole class and returns a dict with all the present and absent students 
@@ -230,9 +201,6 @@ def takeAttendenceFromFiles(enc_names_file, enc_std_faces_file, class_room_img):
         'absent_stds':list(NOT_SURE_DIST)}
 
 # %%
-takeAttendenceFromFiles(Name_list, StudentFaces_Encoding, ClassroomImagePath)
-
-# %%
 def takeAttendence(dec_names_lst, dec_std_faces, dec_class_room_img):
   """
   This function detects and recongnize faces in the image(as numpy array) of whole class and returns a dict with all the present and absent students 
@@ -313,6 +281,3 @@ def takeAttendence(dec_names_lst, dec_std_faces, dec_class_room_img):
   return {'total_detected_stds':total_faces,
         'present_stds':list(Name_Dist),
         'absent_stds':list(NOT_SURE_DIST)}
-
-
-takeAttendence(Name_list, StudentFaces_Encoding, ClassroomImagePath)
