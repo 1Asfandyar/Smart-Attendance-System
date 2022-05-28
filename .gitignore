@@ -27,3 +27,5 @@
 **/yarn-error.log*
 
 **/Data
+
+**/__pycache__/**
