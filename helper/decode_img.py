@@ -6,4 +6,6 @@ import base64
 def decode(str_img:str):
     # this method take base64 incoded image and returns the data
     # which is required for decoding the image.
-    return np.array(Image.open(io.BytesIO(base64.b64decode(str_img))))
+    # encoded string would be like
+    # data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/
+    return np.array(Image.open(io.BytesIO(base64.b64decode(str_img.split(",")[1]))))
