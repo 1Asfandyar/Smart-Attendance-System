@@ -27,7 +27,7 @@
 **/yarn-error.log*
 
 **/.env
-.env
+**/.env/**
 # all the traning & testing data for ML Model
 **/Data
 
