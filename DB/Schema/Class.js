@@ -22,8 +22,6 @@ const classSchema = new Schema({
   },
   attendence_id: {
     type: String,
-    required: true,
-    message: "Attendence ID is required",
   },
   start_time: {
     type: String,
@@ -35,6 +33,7 @@ const classSchema = new Schema({
     required: true,
     message: "Starting time of the Class is requied.",
   },
+  enrolled_students: [{ type: String, required: true, unique: true }],
   student_fcae_encodings: {
     type: String,
     required: true,
