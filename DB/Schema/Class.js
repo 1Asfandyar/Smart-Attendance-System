@@ -35,6 +35,16 @@ const classSchema = new Schema({
     required: true,
     message: "Starting time of the Class is requied.",
   },
+  student_fcae_encodings: {
+    type: String,
+    required: true,
+    message: "Face base64 encodings is requied.",
+  },
+  student_names_encodings: {
+    type: String,
+    required: true,
+    message: "Student name encodings is requied.",
+  },
 });
 
 export const Class = mongoose.model("Class", classSchema);
