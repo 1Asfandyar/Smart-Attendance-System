@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const departmentSchema = new Schema({
+const classSchema = new Schema({
   subject: {
     type: String,
     unique: true,
@@ -37,4 +37,4 @@ const departmentSchema = new Schema({
   },
 });
 
-export const Department = mongoose.model("Department", departmentSchema);
+export const Class = mongoose.model("Class", classSchema);
