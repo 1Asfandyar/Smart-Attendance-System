@@ -68,6 +68,7 @@ const Seed = async () => {
     attendence_id: "A",
     start_time: "9:30",
     end_time: "10:45",
+    enrolled_students: ["180380", "180381", "180382"],
     student_fcae_encodings: student_fcae_encodings,
     student_names_encodings: student_names_encodings,
   });
@@ -79,6 +80,7 @@ const Seed = async () => {
     attendence_id: "B",
     start_time: "10:50",
     end_time: "11:30",
+    enrolled_students: ["180380", "180381", "180382"],
     student_fcae_encodings: student_fcae_encodings,
     student_names_encodings: student_names_encodings,
   });
@@ -90,6 +92,7 @@ const Seed = async () => {
     attendence_id: "C",
     start_time: "11:45",
     end_time: "01:30",
+    enrolled_students: ["180380", "180381", "180382"],
     student_fcae_encodings: student_fcae_encodings,
     student_names_encodings: student_names_encodings,
   });
