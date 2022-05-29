@@ -5,6 +5,7 @@ import "dotenv/config";
 
 import AuthRouter from "./routes/AuthRouter.js";
 import ClassRouter from "./routes/ClassRouter.js";
+import AttendenceRouter from "./routes/AttendenceRouter.js";
 
 const PORT = process.env.PORT || 3000;
 const { MONGODB_LINK } = process.env;
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/class", ClassRouter);
+app.use("/api/attendence", AttendenceRouter);
 
 const start = async () => {
   // handling the Database link
