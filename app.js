@@ -13,8 +13,8 @@ const { MONGODB_LINK } = process.env;
 const app = express();
 
 app.use("/", express.static("./client/dist/index.html"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false, limit: "20mb" }));
+app.use(bodyParser.json({ limit: "20mb" }));
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/class", ClassRouter);
